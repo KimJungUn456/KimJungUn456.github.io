@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快捷控制面板</title>
+    <style>
+        /* 基礎設定與動態漸層背景 */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 深色漸層背景 */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #ffffff;
+        }
+
+        /* 背景流動動畫 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 玻璃擬態 (Glassmorphism) 容器 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 700px;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 容器設定：預設為直向排列 (適合手機) */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* 媒體查詢：當螢幕寬度大於 600px 時改為橫向排列 */
+        @media (min-width: 600px) {
+            .button-container {
+                flex-direction: row;
+            }
+        }
+
+        /* 按鈕共用樣式 - 膠囊形狀與漸層 */
+        .btn {
+            flex: 1;
+            padding: 16px 24px;
+            border-radius: 50px; /* 圓角膠囊狀 */
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+        }
+
+        /* 更新按鈕 - 霓虹綠 */
+        .btn-update {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+        }
+        .btn-update:hover {
+            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.6);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* 設定按鈕 - 霓虹紫 */
+        .btn-settings {
+            background: linear-gradient(45deg, #8E2DE2, #4A00E0);
+            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.3);
+        }
+        .btn-settings:hover {
+            box-shadow: 0 8px 25px rgba(142, 45, 226, 0.6);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* 測試按鈕 - 霓虹藍 */
+        .btn-test {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+        }
+        .btn-test:hover {
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.6);
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        /* 點擊時的下壓回饋 */
+        .btn:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <h1>SYSTEM DASHBOARD</h1>
+        <div class="button-container">
+            <a href="https://hihihin8n.app.n8n.cloud/form/052221a9-a4c9-4d90-bfae-28c339f4f266" target="_blank" rel="noopener noreferrer" class="btn btn-update">更新</a>
+            
+            <a href="https://docs.google.com/spreadsheets/d/19-t3Ry1AxOzt1YmjV-LeFeb6uXeEzy6tz9leZvxrpYo/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="btn btn-settings">設定</a>
+            
+            <a href="https://kimjungun456.github.io/off_days_viewer.html" target="_blank" rel="noopener noreferrer" class="btn btn-test">測試</a>
+        </div>
+    </div>
+
+</body>
+</html>
